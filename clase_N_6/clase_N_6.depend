@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554766191 source:d:\guille\clase_n_6\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
