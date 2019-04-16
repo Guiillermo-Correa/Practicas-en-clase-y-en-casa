@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1555382290 source:d:\nueva carpeta\estructuras_de_datos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ePersona.h"
+
+1555382290 source:d:\nueva carpeta\estructuras_de_datos\epersona.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ePersona.h"
+
+1555382290 d:\nueva carpeta\estructuras_de_datos\epersona.h
+	<stdio.h>
+	<stdlib.h>
+
