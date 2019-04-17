@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1555455327 source:d:\guille\clase_9\clase_9.c
+	<stdio.h>
+	<stdlib.h>
+	"clase_9.h"
+
+1555457088 d:\guille\clase_9\clase_9.h
+
+1555456826 source:d:\guille\clase_9\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clase_9.h"
+
