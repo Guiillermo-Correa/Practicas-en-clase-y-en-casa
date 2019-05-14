@@ -1,0 +1,310 @@
+***********IMPORTANTE***********
+
+Recuperatorio del examen laboratorio
+
+parcial, hacerlo completo . tiene que compilar con todos los items funcionando (solo es un 6)
+
+fecha de entrega dia antes al segundo parcial
+
+**************
+primer parcial
+	
+recuperatorio del primero
+
+segundo parcial
+
+mesa final 1
+mesa final 2
+mesa final 3
+
+
+************Punteros************
+memorias dinamicas , archivos trabajan con punteros
+
+
+guarda como dato una dire de memoria
+
+se puede trabajar con referencia
+
+**declaracion**
+
+tipo  dato
+
+
+tipoDato* variable; = tipoDato *variable; ( * si o si pegado al tipo de dato o a la variable)
+
+siempre tiene que ser del mismo tipo de dato
+
+si declaro un puntero de entero y una variable char no se puede por que no ocupan los mismos bites, si o si tienenque ser del mismo tipo
+int , int 
+char, char 
+etc
+
+
+**** operadores
+
+&=facilita la obtencion de una direccion de memoria de la variable
+
+ *=obtengo el dato del tipo de dato que esta guardada em la direccion de memoria
+
+int n, *p`;
+
+n=7;
+
+p=&n;
+
+Dire       Dato
+---------------	| 
+0x100	|	7	| "n"
+
+0x104	|0x100	| "p"
+				|
+				|
+				|
+				|
+
+
+printf("%d",*p); imprime el dato que esta guardado en la direccion de memoria de p osea 7
+
+
+int n, *p, *q;
+
+
+q tiene el mismo valor que p
+
+Dire       Dato
+---------------	| 
+0x100	|	7	| "n"
+
+0x104	|0x100	| "p"
+				|
+0x108	|		| "q"
+				|
+				|
+
+
+ ********otro ejemplo:*-**************
+
+int* a;
+int b,c;
+
+Y hacemos:
+
+b=15; // Asignamos el valor 15 a la variable 'b'
+
+a=&b; // Obtenemos la posición de memoria de 'b' con el operador '&' guarda la direccion de memoria de b en a
+
+c=*a; // Copiamos el contenido apuntado por el puntero 'a'
+asigno el dato en la variable b, por que esta guardado en direccion de memoria de a
+
+
+
+Dire       Dato
+---------------	| 
+0x100	|	7	| "b"
+
+0x104	|0x100	| "a"
+				|
+0x108	|	7	| "c"
+				|
+				|
+
+
+*******Asignación de punteros**********
+
+Es posible asignar el valor de una variable de tipo puntero a otra variable de tipo puntero.
+
+ejemplo:
+
+int* a;
+int* b;
+int c;
+
+a=&c; // Obtenemos la posición de memoria de 'c' con el operador '&'
+asigno la dire de memoria de c
+
+b=a; // Asignamos el valor del puntero 'a' al puntero 'b'
+Entonces b contiene el valor de a, y por ello, b también “apunta” a la variable c.
+
+asigno el valor que guarda el puntero a
+
+a y b tienen como dato la dire de memoria de c
+
+
+Dire       Dato
+---------------	| 
+0x100	|	7	| "b"
+
+0x104	|0x100	| "a" (arreglar)
+				|
+0x108	|	7	| "c"
+				|
+
+
+*******Comparación de punteros*******
+
+Sobre las variables de tipo puntero es posible realizar operaciones de comparación, veamos un
+.
+los op relacionales son los mismos para los punteros
+
+
+
+ejemplo:
+
+int* punteroA;
+
+int* punteroB;
+
+int auxiliarC , auxiliarD;
+
+punteroA = &auxiliarC; // Obtenemos la posición de memoria de 'auxiliarC'
+
+punteroB = &auxiliarD; // Obtenemos la posición de memoria de 'auxiliarD'
+
+if (punteroA<punteroB)
+printf("El punteroA apunta a una dirección más baja que punteroB");
+
+else if (punteroA>punteroB)
+printf("El punteroB apunta a una dirección más baja que punteroA");
+
+*********ejemplo*********
+
+int* punteroA;
+
+int* punteroB;
+
+int dato;
+
+todas son validas
+{
+	if(punteroA == punteroB)
+
+	if(punteroA > punteroB)
+
+	if(punteroA < 0x1ABB) 
+
+	if(punteroB == &dato) 
+
+	if(punteroB != NULL) (validacion) 
+	lo que guarda como dato es una dire valida osea que no sea NULL
+
+}
+
+
+*****************Aritmética de punteros************
+
+
+no importa la cantidad de bites solo tenemos que saber el tipo de dato que es
+
+		Posicion 
+		actual		a++			a--		a=a+2	a=a-3
+char *a| 0xA080   | 0xA081  | 0xA07F   |0xA082	|0xA07D|
+
+int *a| 0xB080   | 0xB084  | 0xB07F   |0xB088	|0xB06E	|
+
+float *a| 0xC080   | 0xC084  | 0xC07F   |0xC088	|0xC06E	|
+
+
+int n[3]= {1,2,3};
+
+int 1
+
+int* p;
+
+p=n; = p=&n[0];
+
+for(i=0;i<3;i++)
+{
+	printf("%d",n[i]);
+
+}
+
+
+Dire       Dato
+---------------	| 
+0x100	|	1	| 
+
+0x104	|	2	| 
+				|
+0x108	|	3	| 
+				|
+0x112	|0x100	| "p"	
+
+
+for(i=0;i<3;i++) muestro el valor de cada dato de la dire de memoria
+
+{
+	printf("%d",*(p+i)); 
+
+	voy sumando 1 a la dire de memoria actual, para pasar a la siguiente dire y mostrarlo
+
+	p+i.(sizeof(int)) = *(p+i)
+	de manera interna la maquina hace este proceso
+}
+
+**puntero hace referencia a otra variable**
+
+//tamaño de una variable en bite (sizeof)//
+
+
+
+********Vectores y punteros********
+
+int arrayInt[80];
+int* p1;
+int* p2;
+
+p1 = &arrayInt[4]; (quinto elemnto)
+p2 = &arrayInt[0];(primer elemento)
+
+
+Dire       Dato
+---------------	| 
+0x100	|	0	| p2
+
+0x104	|	1	| 
+				|
+0x108	|	2	| 
+				|
+0x112	|	3	| p1
+ ""	
+0x108	|	4	| 
+				|
+0x112	|	5	| 
+
+Para asignar una dirección de una variable entera, llamada 'var', al tercer elemento del array
+de punteros, se escribe:
+
+x[2] = &var;
+
+para obtener el valor de var
+
+*x[2];
+
+//////////***********///////////
+
+int a; guard dato entero
+
+int *punteroInt; encuentro una direccion de memoria encuentro un dat entero
+
+int **punteroPuntero; encuentro una direccion de memoria en esa direccion encuentro otra direccion de memoria y en esa segunda direccion encuentro un dato entero 
+
+punteroInt = &a; // Obtenemos la posición de memoria
+
+punteroPuntero = &puntero; // Obtenemos la posición de memoria
+
+int datEnt
+
+int* dirMen- datEnt
+
+int** dirMen-dirMen- datEnt
+
+Y entonces, ¿De qué formas podemos ahora acceder al valor de la variable 'a'?
+
+
+a (forma habitual)
+
+*punteroInt (a través del puntero)
+
+**punteroPuntero (a través del puntero a puntero) 
+
