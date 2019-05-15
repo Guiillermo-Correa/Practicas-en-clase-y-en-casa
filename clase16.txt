@@ -1,0 +1,190 @@
+
+******** Punteros a cadenas de caracteres
+un puntero a cadena de caracter(string) es un puntero a char
+
+
+char *p; (solo declaro una variable)
+char letra='a';
+
+char vec[10]='hola'; (cuando se ejecuta esta linea se le da 10 bites de memoria para guardar la palabra hola)es estatico
+
+p=&letra;
+
+	dire	dato
+0x100	|0x101	|p
+0x101	|'a'	| letra
+0x102	| 	h	|vec
+0x103	|	o   |
+0x104	|	l   |
+0x105	|	a	|
+0x106	|	\0	|
+
+
+p=vec;
+
+	dire	dato
+0x100	|0x102	|p
+0x101	|'a'	| letra
+0x102	| 	h	|vec
+0x103	|	o   |
+0x104	|	l   |
+0x105	|	a	|
+0x106	|	\0	|		
+
+
+Recorrido de una cadena mediante aritmética de punteros e índices.
+
+
+tipo lista[NUMERO_DE_ELEMENTOS];
+
+tipo* puntero;
+
+puntero = lista;
+
+Se debe recordar que en general, cuando se suma 1 a un puntero, el valor numérico de la
+
+dirección no se incrementa en 1, sino en:
+
+sizeof(tipo)devuelve la cantidad de bits en memoria
+
+void mostrarCadena(char* punteroCadena)
+{
+	while(*punteroCadena != '\0')
+	(mientras sea distinto a \0 sigue iterando)
+
+	{
+		printf("%c",*punteroCadena); muestra el caracter
+		punteroCadena++; desplaza el puntero
+
+	}
+} 
+no retorna nada y recibe un puntero a char 
+cambia el dato guardado en ese lugar sumandole 1 para poder moverse en la direccion cambia totalmente el valor del puntero
+
+
+%p puedo ver la direccion de memoria
+
+2.2 Punteros a estructura
+
+typedef struct 
+{
+	char nombre[20];
+		int nota;
+} alumno;
+
+alumno auxiliarAlumno;
+
+alumno* punteroAlumno;
+
+punteroAlumno = &auxiliarAlumno;
+*////////////////*********///////
+typedef struc{
+	
+	int algo;
+	char otroAlgo;
+}eDato;
+
+eDato *dato;
+eDato dat;
+
+dato=&dat;
+
+dato-> algo; -> me permite trabajar de una manera mas simple
+
+dato-> otroAlgo;
+
+
+*/****************************///
+
+#define CANTIDAD 5
+struct alumno
+{
+	char nombre[20];
+	int nota;
+};
+
+
+void main(void)
+{
+	int i;
+	struct alumno arrayAlumnos[CANTIDAD];
+	struct alumno *punteroArrayAlumnos;
+	punteroArrayAlumnos = arrayAlumnos;
+
+	for(i=0; i<CANTIDAD; i++)
+	{
+		punteroArrayAlumnos++;
+	//...
+	}
+}
+-*********************************///
+void main(void)
+{
+	struct alumno auxiliarAlumno;
+	struct *punteroAlumno;
+	punteroAlumno = &auxiliarAlumno;
+	strcpy(punteroAlumno->nombre, "Ernesto");
+	punteroAlumno->nota = 10;
+}
+
+///**********************///
+Vector de punteros
+
+tiene como dato un pountero
+
+tipo* nombre[MAX];
+
+El vector tiene posiciones de memoria (punteros) de algunas variables, por ejemplo el elemento vec[ i ] contiene la dirección de memoria de una variable y por lo tanto el contenido
+de *vec[ i ] será un entero.
+
+
+
+for(i=0; i < CANTIDAD -1 ; i++)
+{
+	for(j=i+1; i < CANTIDAD; j++)
+		
+		{
+
+		if(arrayAlumnos[i].nota > arrayAlumnos[j].nota)
+			{
+				auxiliarAlumno = arrayAlumnos[i]
+				arrayAlumnos[i] = arrayAlumnos[j];
+				arrayAlumnos[j] = auxiliarAlumno;
+			}
+		}
+}
+
+
+///****************************************///
+nota final programacion papel 
+martes que viene recuperatorio
+todo hasta el parcial
+14
+5 mierda :c
+///***************************************///
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
