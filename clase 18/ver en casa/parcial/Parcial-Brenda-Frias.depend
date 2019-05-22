@@ -1,0 +1,217 @@
+# depslib dependency file v1.0
+1557145121 source:d:\frias brenda\parcial-brenda-frias\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557153800 source:d:\frias brenda\parcial-brenda-frias\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557145097 d:\frias brenda\parcial-brenda-frias\input.h
+
+1557154213 d:\frias brenda\parcial-brenda-frias\autores.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1557153884 source:d:\frias brenda\parcial-brenda-frias\autores.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557140136 source:f:\usuarios\alumno\escritorio\parcialllll-master\frias.brenda.1a\parcial-brenda-frias\autores.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557140136 f:\usuarios\alumno\escritorio\parcialllll-master\frias.brenda.1a\parcial-brenda-frias\input.h
+
+1557140136 f:\usuarios\alumno\escritorio\parcialllll-master\frias.brenda.1a\parcial-brenda-frias\autores.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1557140136 source:f:\usuarios\alumno\escritorio\parcialllll-master\frias.brenda.1a\parcial-brenda-frias\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557140136 source:f:\usuarios\alumno\escritorio\parcialllll-master\frias.brenda.1a\parcial-brenda-frias\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557147047 source:f:\usuarios\alumno\escritorio\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\autores.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557140136 f:\usuarios\alumno\escritorio\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\input.h
+
+1557140136 f:\usuarios\alumno\escritorio\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\autores.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1557140136 source:f:\usuarios\alumno\escritorio\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557149821 source:f:\usuarios\alumno\escritorio\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557322984 source:d:\aaaa\parcial-copia-mejorado-master\parcial-copia-mejorado-master\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\autores.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557315200 d:\aaaa\parcial-copia-mejorado-master\parcial-copia-mejorado-master\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\input.h
+
+1557322773 d:\aaaa\parcial-copia-mejorado-master\parcial-copia-mejorado-master\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\autores.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1557315200 source:d:\aaaa\parcial-copia-mejorado-master\parcial-copia-mejorado-master\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557322954 source:d:\aaaa\parcial-copia-mejorado-master\parcial-copia-mejorado-master\parcialllll-master - copia\frias.brenda.1a\parcial-brenda-frias\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557324824 source:c:\users\alumno\desktop\frias.brenda.1a\parcial-brenda-frias\autores.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557315200 c:\users\alumno\desktop\frias.brenda.1a\parcial-brenda-frias\input.h
+
+1557324151 c:\users\alumno\desktop\frias.brenda.1a\parcial-brenda-frias\autores.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1557323970 source:c:\users\alumno\desktop\frias.brenda.1a\parcial-brenda-frias\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557324985 source:c:\users\alumno\desktop\frias.brenda.1a\parcial-brenda-frias\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557323970 source:d:\frias.brenda.1a\parcial-brenda-frias\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1557324985 source:d:\frias.brenda.1a\parcial-brenda-frias\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+
+1557315200 d:\frias.brenda.1a\parcial-brenda-frias\input.h
+
+1557324151 d:\frias.brenda.1a\parcial-brenda-frias\autores.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1558486417 source:d:\frias.brenda.1a\parcial-brenda-frias\autores.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"input.h"
+	"autores.h"
+

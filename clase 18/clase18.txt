@@ -1,0 +1,488 @@
+Archivos
+
+
+existen dos tipo de archivos , binaros y de texto
+
+cuando se quieran visializar vamos a ver codigo maquina o binaria(estructura) se puede trabajar como un registro 
+
+texto, texto plana la parte de caraqcter, o cadenas de caracterews vamos a ver caracteres raros archivo que se pueda visualizxar de cualquier manera
+ 
+se guardan de forma binarias 
+
+Cuando se dice que la información esta guardada en formato texto se esta haciendo referencia
+a como es la forma en la que hay que entender el dato, ya que sobre el disco los datos son
+guardados en forma de secuencia de “UNOS” y “CEROS” es decir según el sistema binario.
+
+En C, todas las operaciones que se realizan sobre archivos son hechas a travez de funciones.
+Básicamente existen 2 categorías de funciones para trabajar con archivos y son las que usan
+“buffer” y las que acceden directamente al archivo.
+
+FILE *fopen(char *nombre,char *modo) 
+habre el archivo
+
+1_int fclose(FILE *fp)
+
+2_cierra
+
+3_cierra todos los archivos
+
+4_lee todo y lo carga en mis variable
+
+5_lee lo de mis variables y lo guarda en los archivos
+
+6_int feof
+devuelve un valor si se llego al final del archivo cuando recorro el archivo 
+
+7_nos avisa si hay error
+
+8_revovina el archivo pongo el señalador en el comienzo 
+
+9_me permite moverme desde donde estoy tantos bites que necesite
+
+10_me dice la cantidad de bites que ocupa parte o todo el archivo.debo decirle el comienzo y el final para que me lo diga
+11_trabaja con archivos
+
+como por ejemplo:
+FILE *pArch;
+Donde 'pArch' es el puntero a la estructura FILE.
+
+12_trabaja con archivos
+
+13_trabaja con archivos
+
+14_igual que scanf pero trabaja desde los archivos osea le damos la variable apartir de los archivos
+
+15_ imprimimos en un archivo de tipo texto
+
+fread()
+			toman o dejan esos datos en el archivo.
+fwrite()
+
+para el manejo de archivos es indispensable definir un puntero a la estructura FILE ,
+
+como por ejemplo:
+FILE *pArch; guarda una dire de memoria
+Donde 'pArch' es el puntero a la estructura FILE.
+
+retorno un pounte file 
+primer param el nombre del archivo y lña ruta el modo de apertura seg parametro
+
+
+Modo Detalle
+
+r Abre un archivo de texto para operaciones de lectura.
+
+w Abre un archivo de texto para operaciones de escritura
+
+a Abre un archivo de texto para añadir datos.
+
+rb Abre un archivo binario para operaciones de lectura.
+
+wb Abre un archivo binario para operaciones de escritura.
+
+ab Abre un archivo binario para añadir datos.
+
+r+b Abre un archivo binario para operaciones de lectura 
+escritura.
+
+w+b Abre un archivo binario para operaciones de lectura escritura.
+
+a+b Abre un archivo binario para operaciones de lectura escritura.
+
+r+ Abre un archivo de texto para operaciones de lectura escritura.
+
+w+ Abre un archivo de texto para operaciones de lectura escritura
+
+
+Valor retornado: Si el archivo es abierto exitosamente , la función devuelve un puntero a la
+estructura FILE asociada al archivo. En caso de detectarse un error devuelve NULL
+A tener en cuenta:
+• Se pueden abrir varios archivos al mismo tiempo siempre y cuando exista por lo menos
+un puntero a FILE para cada uno.
+• La cantidad de archivos que se pueden abrir al mismo tiempo depende del sistema
+operativo.
+• No se debe modificar el valor del puntero devuelto por 'fopen()'
+
+
+
+
+
+#include <stdio.h>
+void main (void)
+{
+	FILE *parch;
+	if((parch=fopen("banco.dat","rb"))==NULL)
+	{
+		printf("\nEl archivo no puede ser abierto");
+		exit (1);// cambiar el exit por otra cosa que quiera 				hacer el usuario
+	}
+	fclose(parch);
+}
+
+
+Para crear un archivo por primera vez se debe usar el modo w, pero primero nos debemos
+asegurar que el archivo no exista, ya que en ese caso el contenido del archivo se borra. Para
+contemplar esta situación se modifica levemente el código del ejemplo.
+
+void main (void)
+{
+	FILE *parch;
+	//Se abre en modo lectura
+
+	if((parch=fopen("banco.dat","rb"))==NULL)
+	{
+		//Si el modo anterior dio error el archivo
+		if((parch=fopen("banco.dat","wb"))==NULL)
+		{
+			printf("\nEl archivo no puede ser abierto");
+			exit (1);
+		}
+		//no existe, por lo tanto se crea
+		fclose(parch);
+	}
+}
+
+La idea es abrir un archivo para leer, en el caso de que exista se trabaja normalmente, pero si
+no existe lo abre el segundo 'fopen()' .
+De esta forma nos evitamos borrar un archivo que existe y tiene datos.
+En el caso de querer ingresar el nombre del archivo por teclado, el programa se modifica de la
+siguiente manera:
+
+void main (void)
+{
+	FILE *parch;
+
+	char nombre[20];
+
+	printf("\nIngrese el nombre y ruta del archivo que desea abrir: ");
+
+	gets(nombre);
+	
+		if((parch=fopen( nombre ,"rb"))==NULL)
+		{
+			if((parch=fopen( nombre ,"wb"))==NULL)
+			{
+				printf("\nEl archivo %s no puede ser abierto",nombre);
+				exit (1);
+			}
+			fclose(parch);
+		}
+}
+
+
+
+Cierre de un archivo
+Todo archivo que se abre debe ser cerrado antes de terminar el programa. El terminar el
+programa sin cerrar el o los archivos puede causar pérdida de datos.
+La función 'fclose()' es la que se encarga de cerrar un archivo. El formato de la función es el
+siguiente:
+int fclose ( FILE* parch );
+Donde parch es el puntero a la estructura FILE asociada con el archivo que se desea cerrar.
+Valor retornado: Si el archivo es cerrado exitosamente se retorna un 0 , en caso contrario se
+devuelve –1;
+Veamos un ejemplo:
+
+void main (void)
+{
+	FILE *parch;
+	//Se abre en modo lectura
+	if((parch=fopen("banco.dat","rb"))==NULL)
+	{
+		printf("\nEl archivo no puede ser abierto");
+		exit (1);
+	}
+		if((fclose(parch))==-1) //Se cierra el archivo
+		{
+			printf("\nNo se pudo cerrar el archivo");
+		}
+		else
+		{
+			printf("\nEl archivo se cerro exitosamente");
+		}
+}
+
+
+En el ejemplo se chequea que se haya cerrado correctamente el archivo. En el caso de abrir
+mas de un archivo , antes de terminar el programa se deben cerrar.
+Existe una función llamada fcloseall que cierra todos los archivos que se encuentran abiertos.
+El formato de la función es
+int fcloseall ( void );
+Si la operación es exitosa retorna la cantidad de archivos que se cerraron , en caso contrario
+devuelve –1.
+
+
+Si modificamos el ejemplo anterior:
+void main (void)
+{
+	FILE *parch1, *parch2;
+		if((parch1=fopen("banco.dat","rb"))==NULL) //Se abre en modo lectura
+		{
+			printf("\nEl archivo no puede ser abierto");
+			exit (1);
+		}
+
+		if((parch2=fopen("result.dat","wb"))==NULL) //Se abre en modo escritura
+		{
+			printf("\nEl archivo no puede ser abierto");
+			exit (1);
+		}
+	fcloseall();
+}
+
+
+Escritura de un archivo
+Una vez que el archivo se encuentra abierto se puede empezar a trabajar para leer o escribir.
+La función utilizada para realizar la escritura es fwrite .Esta función sirve para escribir archivos
+de texto o binarios.
+El prototipo de la función es el siguiente:
+
+int fwrite ( void * origen , size_t tamaño , size_t cantidad , FILE *arch);
+
+Donde:
+• origen: Es un puntero al lugar desde donde se obtienen los datos para escribir en el
+archivo
+
+• tamaño: Es el tamaño en bytes del dato que se va a escribir
+
+• cantidad: Es la cantidad de datos de longitud tamaño que se van a escribir
+
+• arch: Es el puntero a FILE asociado al archivo
+
+Nota: size_t es un unsigned int definido en stdio.h
+
+Valor retornado: Devuelve el número de datos escritos (cantidad). Si el valor retornado es
+menor al que se indicó por medio de la variable cantidad , significa que hubo un error en la
+escritura.
+
+
+La función fwrite toma cantidad de datos de longitud tamaño desde la dirección origen y los
+escribe en el archivo asociado al puntero arch comenzando desde la posición actual del
+indicador de posición del archivo. Una vez que se completó la operación de escritura el
+indicador de posición es actualizado (queda apuntando al lugar donde se puede escribir el
+próximo dato).
+Ejemplo: Si queremos escribir en un archivo de texto
+
+FILE *parch;
+char texto[ ]="Prueba de escritura";
+int cant , longi;
+if((parch=fopen("prueba.txt","w"))==NULL) //Se abre en modo escritura
+{
+printf("\nEl archivo no puede ser abierto");
+exit (1);
+}
+longi=strlen (texto );
+cant=fwrite ( texto , sizeof ( char ) , longi , parch ); //Se escribe al archivo
+if (cant<longi)
+printf("\nError al escribir el archivo");
+else
+printf("\nSe escribieron %d caracteres", cant);
+fclose(parch);
+
+Si se trata de un archivo binario el programa será el siguiente:
+
+struct a
+{
+	char nombre[10];
+	int edad;
+};
+
+void main (void)
+{
+	FILE *bin;
+	struct a pers;
+	bin=fopen("bin.dat","wb");
+
+	printf("\nIngrese el nombre: ");
+
+	gets(pers.nombre);
+
+	printf("Ingrese la edad: ");
+
+	scanf("%d",&pers.edad);
+
+	fflush(stdin);
+
+	fwrite(&pers,sizeof(pers),1,bin);
+
+	fclose(bin);
+}
+Lectura de un archivo
+
+Para realizar la lectura de un archivo se utiliza la función fread que tiene el siguiente prototipo
+
+int fread ( void * destino , size_t tamaño , size_t cantidad , FILE *arch );
+Donde:
+
+• destino: Es un puntero al lugar donde se va a dejar el dato leido con fread
+
+• tamaño: Es el tamaño en bytes del dato a leer
+
+• cantidad: Es la cantidad de elementos de longitud tamaño que se van a leer
+
+• arch: Es el puntero a la estructura FILE asociada al archivo desde el que se va a leer.
+
+Valor retornado: Devuelve el número de datos leidos (cantidad). Si el valor retornado es
+menor al que se indicó por medio de la variable cantidad , significa que hubo un error en la
+lectura o que se llegó al final de archivo.
+
+La función “fread” lee desde el archivo referenciado por “arch” a partir de la posición actual del
+indicador de posición , cantidad de elementos de longitud tamaño y deja los elementos leidos
+en la dirección de memoria indicada por destino.
+Una vez que se completó la operación de lectura se actualiza automáticamente el indicador de
+posición del archivo.
+
+
+
+A diferencia de lo que ocurre en la escritura, se debe verificar que se realice la lectura mientras
+no se haya llegado al final del archivo. Esta operación se realiza por medio de la función feof.
+Ejemplo de lectura de archivo binario:
+
+struct a
+{
+char nombre[10];
+int edad;
+};
+
+void main (void)
+{
+	FILE *bin;
+	struct a pers;
+	int cant;
+	if ((bin=fopen("bin.dat","rb"))==NULL)
+	{
+		printf("No se pudo abrir el archivo");
+		exit(1);
+	}
+		while(!feof(bin))
+
+		{
+
+			cant=fread(&pers,sizeof(pers),1,bin);
+			s
+			if(cant!=1)
+			{
+				if(feof(bin))
+				break;
+
+				else
+				{
+					error("No leyo el ultimo registro");
+					break;
+				}
+
+			}
+			printf("\n%s\t%d",pers.nombre,pers.edad);
+		}
+	fclose(bin);
+	getch();
+}
+
+Despues de hacer la lectura se debe verificar que se haya leido la cantidad de datos que se
+indicó. Ocurre que cuando no se lee la cantidad de datos indicada puede haberse alcanzado el
+final de archivo o se pudo haber producido un error.
+
+busquedas y modificaciones
+
+En la lectura y escritura de archivos el indicador de posición se actualiza automáticamente ,
+pero existen casos , por ejemplo en las búsquedas y modificaciones sobre archivos , en los
+cuales se necesita mover el indicador de posición a algún lugar en particular. Para ello se
+cuenta con 2 funciones que permiten realizar tal operación , ellas son fseek y rewind. Por otra
+parte se cuenta con una función que permite obtener el lugar donde se encuentra el indicador
+de posición del archivo , esa función es ftell. A continuación se detallan las 3 funciones.
+
+1.7.1 rewind
+Esta función permite llevar el indicador de posición al comienzo del archivo. El prototipo es el
+siguiente: void rewind (FILE* arch);
+La función rewind ubica el indicador de posición del archivo referenciado por el puntero arch al
+principio y limpia los indicadores de fin de archivo y error que se encuentran el la estructura
+FILE.
+Si se utiliza fread luego de ejecutar rewind, se podra leer el archivo desde el comienzo como
+cuando se abre con fopen.
+
+
+1.7.2 fseek a 
+
+Esta función permite desplazar el indicador de posición del archivo a la posición que se le
+indique. El prototipo es:
+
+int fseek ( FILE *arch , long desplazamiento , int origen);
+Donde:
+
+• arch: Puntero a la estructura FILE asociada con el archivo
+
+• desplazamiento: Es la cantidad de bytes que se desplazará el indicador de posición a
+partir de origen
+
+• origen: Es una constante que determina el punto de referencia a partir del cuál se
+realiza el desplazamiento.
+
+
+Los valores que se le pueden dar a origen figuran en la siguiente tabla. Dichos valores se
+encuentran definidos en stdio.h:
+
+SEEK_SET A partir del comienzo del archivo
+SEEK_CUR A partir de la posición actual del archivo
+SEEK_END A partir de el final del archivo
+
+Valor retornado: Si la operación es exitosa devuelve cero , caso contrario retorna un valor
+distinto de cero.
+
+La función fseek mueve el indicador de posición del archivo desplazamiento bytes a partir de la
+posición indicada por origen.
+
+Ejemplos:
+fseek ( ptr , 0L , SEEK_SET );
+Mueve el indicador de posición al comienzo del archivo. El origen es SEEK_SET que indica el
+comienzo del archivo y se desplaza 0 bytes , por lo tanto queda al principio. Es aconsejable
+que cuando se desee llevar el indicador de posición al comienzo del archivo se utilice rewind ya
+que fseek no limpia el indicador de error ni el de fin de archivo , por lo tanto cuando en
+determinada situación se use fseek no va a dar los resultados esperados.
+
+fseek ( ptr , 0L , SEEK_END );
+Mueve el indicador de posición al final del archivo. El origen es SEEK_END que indica el final
+del archivo y a partir de alli se desplaza 0 bytes , por lo tanto esta al final del archivo. Si se
+desea en algún momento agregar datos , simplemente se debe usar esta función para enviar el
+indicador de posición al final del archivo.
+
+fseek ( ptr , 20L , SEEK_SET );
+Mueve el indicador de posición 20 bytes a partir del comienzo del archivo.
+
+fseek ( ptr , (long) (-1)*sizeof (struct x) , SEEK_CUR );
+sirve para modificar datos
+
+Mueve el indicador de posición una estructura para atras a partir de la posición actual.
+Normalmente esta forma se utiliza cuando se estan editando datos del archivo. Al realizar una
+búsqueda se va leyendo cada uno de los datos del archivo por medio de fread, pero cuando
+encontramos el dato el indicador de posición del archivo esta en el dato siguiente al que
+queremos modificar , con lo cual al hacer fwrite para escribirlo se modificará otro dato. Por lo
+tanto antes de escribir se debe mover el indicador de posición una estructura para atrás.
+
+ftell
+La función ftell me permite obtener la posición actual del indicador de posición. El prototipo es
+el siguiente:
+
+long ftell (FILE * arch );
+
+Donde arch es el puntero a la estructura FILE asociada al archivo.
+Valor retornado: Si la operación es exitosa devuelve la cantidad de bytes que hay desde el
+commienzo del archivo hasta el lugar en que se encuentra el indicador de posición del archivo ,
+en caso contrario devuelve –1L (-1 como tipo long).
+Ejemplo: Obtener el tamaño de un archivo en bytes:
+
+
+
+void main (void)
+{
+	FILE *bin;
+	long int cant;
+	if ((bin=fopen("bin.dat","rb"))==NULL)
+	{
+	printf("No se pudo abrir el archivo");
+	exit(1);
+	}
+	fseek (bin , 0L , SEEK_END ); //Se envía la posición al final del archivo
+	cant=ftell (bin);
+	printf("\nEl archivo tiene %ld bytes",cant);
+	fclose(bin);
+	getch();
+}  
