@@ -1,0 +1,31 @@
+REPASO DE ARCHIVOS
+LAS 3 INSTANCIAS PARA TRABAJAR SOBRE UN ARCHIVO
+ABRIR fopen
+LEER/ESCRIBIR fread/fwrite
+CERRAR/CERRAR TODOS fclose/fcloseall
+
+no puedo tener abierto el archivo si lo quiero mover de carpeta, no me va a dejar porque "el programa x se está usando el archivo"
+
+archivos .xml que trabajan con nodos/jerarquias
+
+archivos .json
+
+!= entre archivo binario y de texto es cómo se interpreta
+
+la diferencia està en el espacio que ocupa por ej
+4 como caracter va a ocupar 8 bits en disco(1byte)
+4 como int va a opupar 32bits en disco(4bytes)
+
+para guardar en formato binario la idea es poder guardar tipos de datos
+
+
+binario 			texto
+						
+						{
+						
+						}
+{
+	
+	fwrite,fread
+
+}
